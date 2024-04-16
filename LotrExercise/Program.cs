@@ -34,21 +34,20 @@ IEnumerable<Character> res2 =
 
 // [❌] 3) Find all the hobbits
 // [❌] 4) Find all the 'four main' hobbits 
-// [❌] 5) List all the realms
+// [❌] 5) List all the realms (that are not "" <- empty string)
 // [❌] 6) Find all the married female characters
 // [❌] 7) Find all the female elves characters with golden hair
 // [❌] 8) Final all characters who's firstname ends with an 'o'
 // [❌] 9) How many of (8) are not Hobbits...
-// [❌] 10) What is the most common first (Probably very difficult)
+// [❌] 10) What is the most common first (Probably very difficult - maybe dont use LINQ)
 
 IEnumerable<String> distinctNames =
     lotr.Characters
-        .Where(c => c.name != "MINOR_CHARACTER")
         .Select(c => c.name.Split(' ').First())
         //.Distinct()
         .OrderBy(c => c);
 
-// [❌] 11) What is the most common lastname (Probably very difficult)
+// [❌] 11) What is the most common lastname (Probably very difficult - maybe dont use LINQ)
 // [❌] 12) Are there any blonde dwarves?
 
 // Bonus Question: Remove characters who's name starts with "user:" from the data (and SAVE IT)
