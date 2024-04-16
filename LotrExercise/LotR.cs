@@ -14,5 +14,6 @@ public class LotR
         // load characters from json file
         Characters = JsonConvert
             .DeserializeObject<IEnumerable<Character>>(sr.ReadToEnd());
+        sr.Close();
     }
 }

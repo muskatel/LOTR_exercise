@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using LotrExercise;
+using Newtonsoft.Json;
 
 Console.WriteLine("Hello, Middle-Earth!\n");
 
@@ -38,21 +39,30 @@ IEnumerable<Character> res2 =
 // [❌] 7) Find all the female elves characters with golden hair
 // [❌] 8) Final all characters who's firstname ends with an 'o'
 // [❌] 9) How many of (8) are not Hobbits...
-// [❌] 10) What is the most common first
+// [❌] 10) What is the most common first (Probably very difficult)
 
-IEnumerable<String> res10 =
+IEnumerable<String> distinctNames =
     lotr.Characters
         .Where(c => c.name != "MINOR_CHARACTER")
-        .Select(c => c.name.Split(' ').First());
- // TODO: this      
+        .Select(c => c.name.Split(' ').First())
+        //.Distinct()
+        .OrderBy(c => c);
 
-// [❌] 11) What is the most common lastname
+// [❌] 11) What is the most common lastname (Probably very difficult)
 // [❌] 12) Are there any blonde dwarves?
 
-foreach (String character in res10)
-{
-    Console.WriteLine(character);
-}
-
 // Bonus Question: Remove characters who's name starts with "user:" from the data (and SAVE IT)
-// TODO: this
+// IEnumerable<Character> charactersToKeep=
+//     lotr.Characters
+//         .Where(c => !c.name.ToLower().StartsWith("user:"))
+//         .Where(c => c.name != "MINOR_CHARACTER");
+//         
+// foreach (Character character in charactersToKeep)
+// {
+//     Console.WriteLine(character.name);
+// }
+//
+// string data = JsonConvert.SerializeObject(charactersToKeep,Formatting.Indented);
+// StreamWriter sw = new StreamWriter("lotr.json");
+// sw.Write(data);
+// sw.Close();
