@@ -37,7 +37,7 @@ IEnumerable<Character> res2 =
 // [❌] 5) List all the realms (that are not "" <- empty string)
 // [❌] 6) Find all the married female characters
 // [❌] 7) Find all the female elves characters with golden hair
-// [❌] 8) Final all characters who's firstname ends with an 'o'
+// [❌] 8) Find all characters who's firstname ends with an 'o'
 // [❌] 9) How many of (8) are not Hobbits...
 // [❌] 10) What is the most common firstname (Probably very difficult - maybe dont use LINQ)
 
