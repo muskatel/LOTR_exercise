@@ -2,7 +2,7 @@
 
 using LotrExercise;
 
-Console.WriteLine("Hello, Middle-Earth!");
+Console.WriteLine("Hello, Middle-Earth!\n");
 
 LotR lotr = new LotR();
 // foreach (Character character in lotr.Characters)
@@ -12,14 +12,47 @@ LotR lotr = new LotR();
 
 // Using LINQ or lambda statements find the following:
 // ✅/❌
-// [❌] 1) Find all characters with 'white' hair
-// [❌]  2) Find all characters that are not dead
-// [❌]  3) Find all the hobbits
-// [❌]  4) Find all the 'four main' hobbits 
-// [❌]  5) List all the realms
-// [❌]  6) Find all the married female characters
-// [❌]  7) Find all the female elves characters with golden hair
-// [❌]  8) Final all characters who's firstname ends with an 'o'
-// [❌]  9) How many of (8) are not Hobbits...
-// [❌]  10) What is the most common lastname
-// [❌]  11) Are there any blonde dwarves?
+// [✅] 1) Find all characters with 'white' hair
+
+IEnumerable<Character> res1 =
+    lotr.Characters.Where(
+        c => c.hair
+            .ToLower()
+            .Contains("white"));
+
+// [✅] 2) Find all characters that are not dead
+
+IEnumerable<Character> res2 =
+    lotr.Characters
+        .Where(c => c.death == "")
+        // union with characters that are immortal
+        .Union(
+            lotr.Characters
+                .Where(c => c.death.ToLower().Contains("immortal"))
+            );
+
+// [❌] 3) Find all the hobbits
+// [❌] 4) Find all the 'four main' hobbits 
+// [❌] 5) List all the realms
+// [❌] 6) Find all the married female characters
+// [❌] 7) Find all the female elves characters with golden hair
+// [❌] 8) Final all characters who's firstname ends with an 'o'
+// [❌] 9) How many of (8) are not Hobbits...
+// [❌] 10) What is the most common first
+
+IEnumerable<String> res10 =
+    lotr.Characters
+        .Where(c => c.name != "MINOR_CHARACTER")
+        .Select(c => c.name.Split(' ').First());
+ // TODO: this      
+
+// [❌] 11) What is the most common lastname
+// [❌] 12) Are there any blonde dwarves?
+
+foreach (String character in res10)
+{
+    Console.WriteLine(character);
+}
+
+// Bonus Question: Remove characters who's name starts with "user:" from the data (and SAVE IT)
+// TODO: this
