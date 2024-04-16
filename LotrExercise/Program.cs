@@ -39,7 +39,7 @@ IEnumerable<Character> res2 =
 // [❌] 7) Find all the female elves characters with golden hair
 // [❌] 8) Final all characters who's firstname ends with an 'o'
 // [❌] 9) How many of (8) are not Hobbits...
-// [❌] 10) What is the most common first (Probably very difficult - maybe dont use LINQ)
+// [❌] 10) What is the most common firstname (Probably very difficult - maybe dont use LINQ)
 
 IEnumerable<String> distinctNames =
     lotr.Characters
